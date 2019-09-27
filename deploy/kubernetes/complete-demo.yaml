@@ -5,6 +5,22 @@ metadata:
   labels:
     name: sock-shop
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: carts-db-pvc
+  annotations:
+    trident.netapp.io/snapshotDirectory: "false"
+  labels:
+    name: carts-db-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -42,8 +58,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          emptyDir:
-            medium: Memory
+          persistentVolumeClaim:
+            claimName: carts-db-pvc
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -169,6 +185,22 @@ spec:
   selector:
     name: catalogue-db
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: catalogue-db-pvc
+  annotations:
+    trident.netapp.io/snapshotDirectory: "false"
+  labels:
+    name: cataogue-db-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -268,6 +300,22 @@ spec:
   selector:
     name: front-end
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orders-db-pvc
+  annotations:
+    trident.netapp.io/snapshotDirectory: "false"
+  labels:
+    name: orders-db-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -305,8 +353,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          emptyDir:
-            medium: Memory
+          persistentVolumeClaim:
+            claimName: orders-db-pvc
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -527,6 +575,22 @@ spec:
   selector:
     name: rabbitmq
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: shipping-pvc
+  annotations:
+    trident.netapp.io/snapshotDirectory: "false"
+  labels:
+    name: shipping-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -568,8 +632,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          emptyDir:
-            medium: Memory
+          persistentVolumeClaim:
+            claimName: shipping-pvc
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -587,6 +651,22 @@ spec:
     targetPort: 80
   selector:
     name: shipping
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: user-db-pvc
+  annotations:
+    trident.netapp.io/snapshotDirectory: "false"
+  labels:
+    name: user-db-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -625,8 +705,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          emptyDir:
-            medium: Memory
+          persistentVolumeClaim:
+            claimName: user-db-pvc
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
