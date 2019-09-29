@@ -1,4 +1,6 @@
 apiVersion: v1
-description: A Helm chart for Sock Shop
-name: helm-chart
+name: Sock-Shop
 version: 0.2.0
+description: A Helm chart for Sock Shop
+appVersion: 1.0.0
+
