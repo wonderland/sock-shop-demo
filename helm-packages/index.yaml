@@ -8,6 +8,6 @@ entries:
     digest: fce1851003d79bf858cd18d7305edb64a4e4371e453ca3ca851cce0ae2205b3e
     name: Sock-Shop
     urls:
-    - Sock-Shop-2.0.1.tgz
+    - https://mhauke.github.io/nks-sock-shop-demo/helm-packages/Sock-Shop-2.0.1.tgz
     version: 2.0.1
 generated: "2019-10-02T15:35:45.13689858Z"
