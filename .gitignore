@@ -4,3 +4,4 @@
 
 deploy/kubernetes/*.txt
 deploy/kubernetes/cluster.json
+deploy/kubernetes/kubeconfig
