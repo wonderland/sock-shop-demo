@@ -158,7 +158,7 @@ spec:
     spec:
       containers:
       - name: catalogue-db
-        image: weaveworksdemos/catalogue-db:0.3.0
+        image: tfrm2019/catalogue-db:1.0.4
         env:
           - name: MYSQL_ROOT_PASSWORD
             value: fake_password
@@ -220,7 +220,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: weaveworksdemos/catalogue:0.3.5
+        image: tfrm2019/catalogue:1.0.4
         ports:
         - containerPort: 80
         securityContext:
@@ -267,7 +267,7 @@ spec:
     spec:
       containers:
       - name: front-end
-        image: weaveworksdemos/front-end:0.3.12
+        image: tfrm2019/front-end:1.0.3
         resources:
           requests:
             cpu: 100m
