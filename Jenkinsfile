@@ -80,7 +80,7 @@ spec:
     stage('Deploy to test env') {
       steps {
         container('kubectl') {
-          sh "kubectl delete -f ./deploy/kubernetes/complete-demo-latest.yaml"
+          sh "kubectl delete -f ./deploy/kubernetes/complete-demo-latest.yaml || true"
           sh "kubectl apply -f ./deploy/kubernetes/complete-demo-latest.yaml"
         }
       }
