@@ -38,10 +38,14 @@ spec:
     stage('Build image') {
       steps {
         container('docker') {
-          withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
             sh "docker build -t tfrm2019/frontend:latest ./front-end"
-          }
         }
+      }
+    }
+    
+   stage('Run tests') {
+      steps {
+      /* here be tests... */
       }
     }
     
@@ -54,6 +58,20 @@ spec:
         }
       }
     }
+    
+    
+    stage('Deploy to test env') {
+      steps {
+        container('kubectl') {
+          sh "kubectl delete -f ./deploy/kubernetes/complete-demo-latest.yaml"
+          sh "kubectl apply -f ./deploy/kubernetes/complete-demo-latest.yaml"
+        }
+      }
+    }
+    
+    
+    
+    
 
   }
 }
