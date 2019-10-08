@@ -40,7 +40,7 @@ spec:
     stage('Build image') {
       steps {
         container('docker') {
-            sh "docker build -t tfrm2019/frontend:latest ./front-end"
+            sh "docker build -t tfrm2019/front-end:latest ./front-end"
         }
       }
     }
@@ -57,7 +57,7 @@ spec:
       steps {
         container('docker') {
           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-            sh "docker push tfrm2019/frontend:latest"
+            sh "docker push tfrm2019/front-end:latest"
           }
         }
       }
