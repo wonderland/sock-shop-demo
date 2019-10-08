@@ -12,6 +12,7 @@ metadata:
   labels:
     component: ci
 spec:
+  serviceAccountName: jenkins
   containers:
     - name: docker
       image: docker
