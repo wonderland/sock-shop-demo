@@ -45,7 +45,9 @@ spec:
     
    stage('Run tests') {
       steps {
-      /* here be tests... */
+         container('docker') {
+            sh "echo 'Here be tests...'"
+         }
       }
     }
     
