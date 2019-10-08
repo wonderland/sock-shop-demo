@@ -22,7 +22,7 @@ spec:
         - mountPath: /var/run/docker.sock
           name: docker-sock
     - name: kubectl
-      image: lachlanevenson/k8s-kubectl:v1.15.4 // use a version that matches your K8s version
+      image: lachlanevenson/k8s-kubectl:v1.15.4
       command:
         - cat
       tty: true
