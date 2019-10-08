@@ -37,19 +37,6 @@ spec:
 
   stages {
     
-        stage('kubetest') {
-      steps {
-        container('kubectl') {
-          sh "kubectl get nodes"
-        }
-      }
-    }
-    
-    
-    
-    
-    
-    
     stage('Build image') {
       steps {
         container('docker') {
