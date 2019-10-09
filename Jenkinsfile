@@ -68,6 +68,7 @@ spec:
       steps {
         container('kubectl') {
           sh "kubectl delete -f ./deploy/kubernetes/complete-demo-latest.yaml || true"
+          sleep 120
           sh "kubectl apply -f ./deploy/kubernetes/complete-demo-latest.yaml"
         }
       }
