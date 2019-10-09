@@ -58,8 +58,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          persistentVolumeClaim:
-            claimName: carts-db-pvc
+          emptyDir:
+            medium: Memory
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -353,8 +353,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          persistentVolumeClaim:
-            claimName: orders-db-pvc
+          emptyDir:
+            medium: Memory
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -632,8 +632,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          persistentVolumeClaim:
-            claimName: shipping-pvc
+          emptyDir:
+            medium: Memory
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -705,8 +705,8 @@ spec:
           name: tmp-volume
       volumes:
         - name: tmp-volume
-          persistentVolumeClaim:
-            claimName: user-db-pvc
+          emptyDir:
+            medium: Memory
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
