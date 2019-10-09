@@ -67,9 +67,9 @@ spec:
     stage('Deploy to test env') {
       steps {
         container('kubectl') {
-          sh "kubectl delete -f ./deploy/kubernetes/complete-demo-latest.yaml || true"
-          sleep 120
-          sh "kubectl apply -f ./deploy/kubernetes/complete-demo-latest.yaml"
+          sh "kubectl delete -f ./deploy/kubernetes/front-end-latest.yaml || true"
+          sleep 60
+          sh "kubectl apply -f ./deploy/kubernetes/front-end-latest.yaml"
         }
       }
     }
